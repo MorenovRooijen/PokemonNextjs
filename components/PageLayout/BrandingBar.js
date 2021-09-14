@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap/";
 import { FaEllipsisV } from "react-icons/fa";
 import css from "styled-jsx/css";
-import { Logo } from "../public/logos/book.svg";
+import Logo from "../Logo";
 
 /**
  * Compontent that shows the branding bar.
@@ -51,10 +51,7 @@ const BrandingBar = ({ contact }) => {
         <Container fluid>
           <div className="branding_wrapper">
             <Navbar.Brand href="/">
-              <Logo
-                className="logo"
-                style={{ padding: ".5rem", height: "100%", width: "10rem" }}
-              />
+              <Logo />
             </Navbar.Brand>
           </div>
 

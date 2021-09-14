@@ -1,6 +1,5 @@
-import PageContainer from "components/PageContainer";
-import MijngoedhuisContextProvider from "context/MijngoedhuisContextProvider";
-const HomeContext = ({ text }) => {
+import PageContainer from "components/PageLayout/PageContainer";
+const Home = ({ text }) => {
   return (
     <>
       <PageContainer>
@@ -10,14 +9,6 @@ const HomeContext = ({ text }) => {
         </>
       </PageContainer>
     </>
-  );
-};
-
-const Home = (props) => {
-  return (
-    <MijngoedhuisContextProvider>
-      <HomeContext {...props} />
-    </MijngoedhuisContextProvider>
   );
 };
 

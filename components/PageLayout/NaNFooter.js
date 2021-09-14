@@ -1,5 +1,5 @@
 import { breakpoint_md, color_text_main } from "constants/theme";
-import { Logo } from "../public/logos/book.svg";
+import Logo from "../Logo";
 
 /**
  * Component of the footer
@@ -15,7 +15,7 @@ const NaNFooter = () => (
           </p>
         </div>
         <div className="footer_logo">
-          <Logo style={{ padding: "1rem 0", height: "100%", width: "8rem" }} />
+          <Logo />{" "}
         </div>
       </div>
     </div>

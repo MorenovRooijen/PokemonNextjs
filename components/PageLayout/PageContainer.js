@@ -1,7 +1,7 @@
-import BrandingBar from "components/BrandingBar";
-import NaNFooter from "components/NaNFooter";
-import NaNNavigation from "components/NaNNavigation";
 import { Container } from "react-bootstrap";
+import BrandingBar from "./BrandingBar";
+import NaNFooter from "./NaNFooter";
+import NaNNavigation from "./NaNNavigation";
 
 /**
  * Container of the entire page

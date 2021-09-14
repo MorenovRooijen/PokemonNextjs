@@ -1,6 +1,6 @@
 import axios from "axios";
 import useSWR from "swr";
-import { api_url, login_cookie_name } from "../constants/constants";
+import { login_cookie_name } from "../constants/constants";
 import { getCookie } from "./custom_methods";
 
 /************************************************************
@@ -26,7 +26,7 @@ export const useUser = () => {
 
 //TODO: Create a general post function with prefilled header and url
 
-export async function mijngoedhuis_post(url, data) {
+export async function nan_post(url, data) {
   let result = null;
   try {
     await axios
@@ -74,11 +74,9 @@ export async function mijngoedhuis_post(url, data) {
  * Mijngoedhuis API GET's
  *
  *************************************************************/
-export const mijngoedhuis_get = (url) => {
+export const nan_get = (url, options = {}) => {
   return axios
-    .get(api_url + "wp-json/notanumber/v1/mijngoedhuis/" + url, {
-      headers: { Authorization: "Bearer " + getCookie(login_cookie_name) },
-    })
+    .get(url, options)
     .then((res) => {
       return res.data;
     })

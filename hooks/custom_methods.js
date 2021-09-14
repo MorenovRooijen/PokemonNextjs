@@ -1,4 +1,3 @@
-import axios from "axios";
 import parse from "html-react-parser";
 
 /**
@@ -34,27 +33,7 @@ export function createQuery(info) {
   }
   return query;
 }
-/**
- * Get the url for the generated PDF.
- * @param {string} url  URL of the page to be generated
- * @param {string} filename Name of the resulting pdf.
- */
-export function getPDFUrl(url, filename = "test.pdf") {
-  return `https://pdf.test.wurld.nl/?filename=${filename}&margin=0&url=${url}`;
-}
-/**
- *  Scroll the parent to the center of a given element.
- * @param {JSelement} element
- */
-export function scrollItemToCenter(element) {
-  const dist =
-    element.offsetLeft - window.screen.width / 2 + element.offsetWidth / 2;
-  element.parentElement.scroll({
-    left: dist,
-    top: 0,
-    behavior: "smooth",
-  });
-}
+
 export function toDateString(date) {
   if (date instanceof Date) {
     return (
@@ -67,12 +46,17 @@ export function toDateString(date) {
   }
   return null;
 }
-export function zeroPad(num, size) {
-  num = num.toString();
-  while (num.length < size) {
-    num = "0" + num;
+/**
+ * make a number at least size length, using leading zeros
+ * @param {*} number Number to be used
+ * @param {*} size Siz of the array
+ */
+export function zeroPad(number, size) {
+  number = number.toString();
+  while (nunumberm.length < size) {
+    number = "0" + number;
   }
-  return num;
+  return number;
 }
 /**
  * Print HTML String to plain HTML Element
@@ -83,74 +67,6 @@ export function printHTML(text) {
     return null;
   }
   return parse(text);
-}
-
-/** */
-export async function createPDFFile(url, name) {
-  return axios({
-    url: url, // download url
-    method: "get",
-    headers: {
-      Accept: "application/pdf",
-      "Content-Type": "application/pdf",
-    },
-  }).then((data) => {
-    let file = new File([data.data], name || "file.pdf");
-    return file;
-  });
-}
-export const changeFileDescription = (event) => {
-  const target = event.currentTarget;
-  const file_container = target.querySelector("input");
-
-  const file = file_container?.files[0]?.name;
-  const label = target.querySelector("label.custom-file-label");
-  console.log("file_container", file_container);
-  console.log("file", file);
-  console.log("label", label);
-  label.innerHTML = file || "";
-};
-//return a promise that resolves with a File instance
-export async function base64toFile(base64, filename, mimeType) {
-  return await fetch(base64)
-    .then(function (res) {
-      return res.arrayBuffer();
-    })
-    .then(function (buf) {
-      return new File([buf], filename, { type: mimeType });
-    });
-}
-
-/**
- * Function to download a file from a blob.
- * @param {*} blob
- */
-export function downloadBlob(blob) {
-  // Convert your blob into a Blob URL (a special url that points to an object in the browser's memory)
-  const blobUrl = URL.createObjectURL(blob);
-
-  // Create a link element
-  const link = document.createElement("a");
-
-  // Set link's href to point to the Blob URL
-  link.href = blobUrl;
-  link.download = blob?.name;
-
-  // Append link to the body
-  document.body.appendChild(link);
-
-  // Dispatch click event on the link
-  // This is necessary as link.click() does not work on the latest firefox
-  link.dispatchEvent(
-    new MouseEvent("click", {
-      bubbles: true,
-      cancelable: true,
-      view: window,
-    })
-  );
-
-  // Remove link from body
-  document.body.removeChild(link);
 }
 
 /**

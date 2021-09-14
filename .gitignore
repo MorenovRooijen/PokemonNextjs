@@ -1,11 +1,3 @@
-.env
-.env.local
-.vscode/
-.htaccess
-debug/debug.log
-nextjs/.next/
-nextjs/node_modules/
-nextjs/out/
-wordpress/themes/twentynineteen
-wordpress/themes/twentyseventeen
-wordpress/themes/twentytwenty
+.next/
+node_modules/
+out/
