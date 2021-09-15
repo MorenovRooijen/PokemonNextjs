@@ -1,5 +1,3 @@
-import parse from "html-react-parser";
-
 /**
  * Converts number to euro price.
  * @param {*} price price to be converted

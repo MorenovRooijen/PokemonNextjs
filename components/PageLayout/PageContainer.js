@@ -1,5 +1,4 @@
 import { Container } from "react-bootstrap";
-import BrandingBar from "./BrandingBar";
 import NaNFooter from "./NaNFooter";
 import NaNNavigation from "./NaNNavigation";
 
@@ -16,21 +15,28 @@ import NaNNavigation from "./NaNNavigation";
  */
 const PageContainer = ({ children, fluid = false }) => (
   <>
-    <div className="sticky_header">
-      <BrandingBar />
-      <NaNNavigation />
+    <div className="page">
+      <div className="sticky_header">
+        <NaNNavigation />
+      </div>
+      <Container fluid={fluid} className="page_container_wrapper">
+        {children}
+      </Container>
+      <NaNFooter />
     </div>
-    <Container fluid={fluid} className="page_container_wrapper">
-      {children}
-    </Container>
-    <NaNFooter />
     <style jsx>{`
-      .sticky_header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-      }
-      :global(.page_container_wrapper) {
+      .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        :global(.page_container_wrapper) {
+          flex: 1;
+        }
+        .sticky_header {
+          position: sticky;
+          top: 0;
+          z-index: 10;
+        }
       }
     `}</style>
   </>

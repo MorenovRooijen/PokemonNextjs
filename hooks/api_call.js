@@ -1,22 +1,6 @@
 import axios from "axios";
-import useSWR from "swr";
 import { login_cookie_name } from "../constants/constants";
 import { getCookie } from "./custom_methods";
-
-/************************************************************
- *
- * useSWR functions
- *
- *************************************************************/
-
-export const useUser = () => {
-  const { data, error } = useSWR("user", mijngoedhuis_get);
-  return {
-    data: data,
-    isLoading: !error && !data,
-    isError: error,
-  };
-};
 
 /************************************************************
  *

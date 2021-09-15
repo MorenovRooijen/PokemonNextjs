@@ -1,12 +1,17 @@
 import PageContainer from "components/PageLayout/PageContainer";
+import { getPokemon } from "hooks/pokemon_api_calls";
+import { useEffect } from "react";
 const Home = ({ text }) => {
+  const [pokemon, setPokemon] = useState(null);
+  useEffect(() => {
+    getPokemon().then((result) => {
+      setPokemon(result);
+    });
+  }, []);
   return (
     <>
       <PageContainer>
-        <>
-          <h1>Geweldige pagina</h1>
-          <p>{text}</p>
-        </>
+        <>{JSON.stringify(pokemon)}</>
       </PageContainer>
     </>
   );
