@@ -1,7 +1,23 @@
 //https://pokeapi.co/
 
 import { nan_get } from "./api_call";
+const getFromPokemonAPi = async (url) => {
+  return await nan_get("https://pokeapi.co/api/v2/" + url);
+};
+const getPokemonList = async () => {
+  return await getFromPokemonAPi("pokemon");
+};
+const getPokemonListFull = async () => {
+  return await getFromPokemonAPi("pokemon/?limit=1118");
+};
+const getPokemon = async (name) => {
+  return await getFromPokemonAPi("pokemon/" + name);
+};
 
-export const getPokemon = async () => {
-  return await nan_get("https://pokeapi.co/api/v2/pokemon?limit=151");
+export const API = {
+  pokemon: {
+    list: getPokemonList,
+    full: getPokemonListFull,
+    get: getPokemon,
+  },
 };
