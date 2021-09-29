@@ -4,6 +4,7 @@ import { API } from "hooks/pokemon_api_calls";
 const PokemonPage = ({ pokemon }) => {
   return (
     <PageContainer>
+      <h2>{pokemon?.name}</h2>
       <pre>{JSON.stringify(pokemon, null, 2)}</pre>
     </PageContainer>
   );

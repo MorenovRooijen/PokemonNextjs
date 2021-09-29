@@ -20,8 +20,6 @@ const Home = ({ text }) => {
   return (
     <>
       <PageContainer>
-        {/* <pre>{JSON.stringify(pokemon, null, 2)}</pre> */}
-
         <Row className="pokemon_container">
           {pokemon &&
             pokemon.map((pokemon) => {
@@ -39,6 +37,7 @@ const Home = ({ text }) => {
         .pokemon_container {
           .pokemon {
             padding: 1rem;
+            cursor: pointer;
           }
         }
       `}</style>
