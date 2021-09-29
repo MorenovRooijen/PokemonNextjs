@@ -14,10 +14,15 @@ const getPokemon = async (name) => {
   return await getFromPokemonAPi("pokemon/" + name);
 };
 
+const getPokemonListPaginated = async (page) => {
+  return await getFromPokemonAPi("pokemon?limit=20&offset=" + page * 20);
+};
+
 export const API = {
   pokemon: {
     list: getPokemonList,
     full: getPokemonListFull,
+    paginated: getPokemonListPaginated,
     get: getPokemon,
   },
 };
