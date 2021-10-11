@@ -1,9 +1,8 @@
 import PageContainer from "components/PageLayout/PageContainer";
 import { API } from "hooks/pokemon_api_calls";
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-
 const Home = ({ text }) => {
   const [pokemon, setPokemon] = useState([]);
   useEffect(() => {
@@ -17,6 +16,7 @@ const Home = ({ text }) => {
       setPokemon(pokemon_list);
     });
   }, []);
+
   return (
     <>
       <PageContainer>

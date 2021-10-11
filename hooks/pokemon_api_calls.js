@@ -13,11 +13,23 @@ const getPokemonListFull = async () => {
 const getPokemon = async (name) => {
   return await getFromPokemonAPi("pokemon/" + name);
 };
+const getSpecies = async (id) => {
+  return await getFromPokemonAPi("pokemon-species/" + id);
+};
+const getEvolutionChain = async (id) => {
+  return await getFromPokemonAPi("evolution-chain/" + id);
+};
 
 export const API = {
   pokemon: {
     list: getPokemonList,
     full: getPokemonListFull,
     get: getPokemon,
+  },
+  species: {
+    get: getSpecies,
+  },
+  evolution: {
+    get: getEvolutionChain,
   },
 };
